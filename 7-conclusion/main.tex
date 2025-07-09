@@ -1,0 +1,54 @@
+\chapter{Summary and Outlook}\label{c:conclusion}
+
+\section{Summary of key contributions}
+
+This thesis presents a comprehensive framework for the AI-assisted inverse design of DJ-phase 2D perovskites with targeted electronic properties. By integrating an invertible molecular fingerprint, high-throughput DFT calculations, and a synthesis feasibility screening strategy, the proposed workflow enables property-driven generation of organic spacers that are both theoretically promising and experimentally viable. This framework supports efficient exploration of vast chemical spaces and offers a systematic approach to designing lab-synthesizable DJ-phase perovskite materials. Beyond DJ systems, the underlying principles—particularly the use of interpretable and invertible molecular representations—provide a transferable strategy applicable to a broad range of hybrid materials.
+
+The key contributions of this work are as follows:
+
+First, we developed a 12-digit fingerprint representation tailored to encode key structural features of organic spacers in a machine-readable and human-interpretable format. This invertible fingerprint simplifies the inverse design process by enabling direct generation of candidate structures without relying on complex AI architectures such as deep neural networks. The modular design of the fingerprint also allows for adaptation to other families of small organic molecules with user-defined structural features.
+
+Second, we significantly expanded the design space of DJ-phase spacers—from approximately \~20 known experimental molecules to over \~10$^6$ hypothetical candidates—through systematic morphing operations. From this expanded space, \~70 final organic spacers were identified with favorable energy level alignments (Types Ib, IIa, and IIb). Many of these candidates exhibit structural features distinct from reported molecules, thereby offering new insights and opportunities for experimental realization.
+
+Third, we demonstrated that interpretable, physics-informed machine learning models, specifically linear regression using domain-relevant descriptors, can achieve high predictive performance. This supports the notion that incorporating expert knowledge into model design can offer a more transparent and effective alternative to complex, black-box approaches, especially when training data is limited.
+
+Finally, we introduced a synthesis feasibility screening filter based on synthetic accessibility of organic spacers (from PubChem) and assessment of 2D formability based on hydrogen bonding between organic and inorganic components. To our knowledge, this is the first virtual synthesis feasibility filter tailored specifically for DJ-phase perovskites. This screening step enabled the prioritization of a shortlist of realistic, lab-accessible candidates with desirable electronic properties, bridging the gap between computational design and experimental synthesis.
+
+\textbf{Addressing research gaps}
+
+This work directly addresses several research gaps outlined in Chapter \ref{c:literature}:
+\begin{itemize}
+    \item Data scarcity is addressed through the generation of a large, systematically constructed dataset based on molecular morphing and high-throughput DFT calculations, significantly expanding the known chemical space of DJ-phase organic spacers.
+
+    \item Structure–property relationships are revealed through interpretable machine learning models trained on physics-informed descriptors. These descriptors are derived from insights gained through high-throughput DFT simulations and are designed to reflect relevant molecular and electronic features.
+
+    \item Constraints of hybrid materials are incorporated through the fingerprinting scheme, which defines a chemically meaningful and computationally tractable scope of organic spacers compatible with 2D perovskite structures. 
+    \item The interaction between the organic and inorganic components are reflected in the synthesis feasibility filter, which includes a 2D formability assessment based on potential hydrogen bonding interactions, providing an initial proxy for evaluating the compatibility between organic cations and the inorganic lattice.
+
+\end{itemize}
+
+
+\section{Limitations and challenges}
+
+While the ML-assisted workflow has proven effective in the inverse design of organic spacers with targeted energy level alignments, several challenges remain. The first limitation arises from the inability to identify certain organic spacers previously designed by organic chemistry experts. This shortfall stem from the trade-off inherent in the fingerprint representation, which, while compact and interpretable, confines the scope of explored chemical space. As discussed in Chapter \ref{c:method}, this fragment-based fingerprint vector restricts exploration to a specific subset of organic spacers, for example, excluding organic spacers with additional ring on vertical direction, or inclusion of triple bonds as those designed by chemistry experts. As a result, compounds that fall outside this scope—such as triple bonds and additional rings on vertical direction—remain unaddressed\cite{RN606,RN20}. This limitation underscores a broader challenge in AI-driven materials discovery: bridging the gap between machine exploration and the expert intuition cultivated through decades of experimental research.
+
+The second limitation pertains to reduced prediction accuracy, particularly as the molecular structure becomes more complex. This reflects another fundamental limitation of machine learning models: their performance is intrinsically tied to the quality and diversity of the training data provided. We identified two key aspects of chemistry insights that were not included in the machine learning model as a trade-off to reduce computational cost: 
+
+(1) Input feature limitations: the input features (fingerprint) do not adequately capture the increased structural complexity of the final candidates, which can significantly influence their energy levels. This includes distinctions in energy levels among certain isomers with identical fingerprints and variations due to the conformations of organic spacers in hybrid perovskite structures. 
+
+(2) Training data scope: the training data, drawn primarily from $G_0-G_3$ spacers, encompasses a narrow feature space, predominantly featuring spacers with 1-4 rings (61\% containing 1-2 rings). This limited dataset leads the model to learn structure-property relationships within this range. However, the model struggles with higher-generation spacers outside this feature space, where chemistry deviates significantly, because it lacks prior exposure to such chemistries. Addressing these limitations, through more comprehensive fingerprints or including higher generation spacers in the training data would require a substantial increase in computational resources. 
+
+
+\section{Outlook}
+
+Despite these challenges, the workflow represents a versatile tool for materials discovery, with several opportunities for refinement and broader application: 
+\begin{enumerate}
+    \item \textbf{Expanding target properties:} the workflow can be adapted to optimize other properties in DJ perovskites, such as chirality, charge mobility, etc.
+    \item Applicability to other systems: While this workflow is directly applicable to 2D perovskite organic spacers, it can be extended to other materials systems, especially those involving small organic molecules by customizing the molecular fingerprint.
+    \item \textbf{Flexible data sources:} The data generation need not rely solely on high-throughput DFT calculations, Alternative sources, such as high-throughput experiments or other simulation techniques, can be integrated into the pipeline.
+    \item \textbf{Advanced machine learning models:} The pipeline could be enhanced with more sophisticated machine learning models to capture nonlinear and intricate structure-property relationships. Strategies such as active learning or Bayesian optimization could further refine the selection of final candidates. 
+    \item \textbf{Multi-objective optimization:} Future work should incorporate additional performance-relevant properties such as exciton binding energy, defect-formation energy, and charge carrier mobility. These properties are critical for practical device deployment, and their inclusion would support a more comprehensive understanding of structure–function relationships in 2D perovskites.
+    \item \textbf{Application-specific material selection guidelines:} To enhance the practical relevance of this work, future studies could establish device-oriented selection criteria based on predicted material properties. For instance, mapping band alignment and mobility into charts tailored for specific applications—such as LEDs (requiring type-I alignment and high radiative efficiency), photovoltaics (type-II with optimal offsets), or transistors (requiring low effective mass and high carrier mobility)—would significantly enhance the utility of AI-assisted material discovery.
+\end{enumerate}
+
+

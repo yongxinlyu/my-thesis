@@ -1,0 +1,17 @@
+% this file is used by HDR these to generate the formal
+% Thesis/Dissertation Sheet
+
+\ThesisFamilyName{Lyu}
+\ThesisGivenName{Yongxin}
+\ThesisOtherNames{} %if any, set to {} if not used
+
+\ThesisAbbreviatedDegree{PhD}
+
+
+\begin{ThesisAbstract}
+Artificial intelligence (AI) -assisted workflows have transformed materials discovery, enabling rapid exploration of chemical spaces of various material systems. Two-dimensional (2D) hybrid perovskites represent an exciting frontier, and their extraordinary optoelectronic properties can be largely attributed to the versatile choices of organic spacers. However, current efforts to design 2D perovskites rely heavily on trial-and-error and expert intuition approaches, leaving the majority of chemical space unexplored. 
+
+This thesis introduces an inverse design workflow specifically designed for Dion-Jacobson perovskites, pivoting on an invertible fingerprint representation for millions of conjugated diammonium organic spacers. A molecular morphing approach was employed to expand the chemical space of organic spacers, which were then evaluated using high-throughput density functional theory (DFT) calculations to determine the energy levels of both the organic and inorganic components in hypothetical perovskite structures. These datasets formed the basis for training various machine learning models, which not only accelerated energy level predictions but also revealed the underlying physical insights between molecular fingerprints and energy levels. Furthermore, a synthesis feasibility screening funnel was developed based on the synthetic accessibility of organic molecules and the formability of 2D structures. Using the above workflow, we inverse-designed new organic spacer candidates with deterministic band alignment between the organic and the inorganic motifs in the 2D hybrid perovskites. 
+
+These results highlight the power of integrating invertible, physically meaningful representations into AI-assisted design. By streamlining the property-driven design of synthesizable materials, this framework provides a scalable and efficient pathway for navigating the chemical space of 2D hybrid perovskites. Beyond its immediate applications to perovskites, the methodology demonstrated herein offers a broadly applicable paradigm for the AI-assisted discovery and design of advanced materials, paving the way for future innovations in materials science and technology.
+\end{ThesisAbstract}
